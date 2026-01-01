@@ -2,6 +2,17 @@ import React from 'react'
 import { AlertTriangle, CheckCircle, Info, FileText, TrendingUp, Download } from 'lucide-react'
 import { Button } from './ui/button'
 
+/**
+ * Render a dashboard summarizing code analysis metrics and providing actions.
+ *
+ * @param {Object} props
+ * @param {Object} props.results - Analysis metrics; expected numeric properties: `totalIssues`, `criticalIssues`, `warnings`, `suggestions`. Missing fields default to 0.
+ * @param {() => void} props.onShowReport - Callback invoked when the "View Detailed Report" button is clicked.
+ * @param {() => void} props.onNewAnalysis - Callback invoked when the "New Analysis" button is clicked.
+ * @param {() => void} [props.onVisualReport] - Optional callback invoked when the "Visual Architecture Report" button is clicked; if omitted, the button is not rendered.
+ * @param {boolean} props.isDarkMode - When true, render dark-mode styling.
+ * @returns {JSX.Element} The AnalysisResults UI element.
+ */
 export function AnalysisResults({ results, onShowReport, onNewAnalysis, onVisualReport, isDarkMode }) {
   const totalIssues = results?.totalIssues || 0
   const criticalIssues = results?.criticalIssues || 0

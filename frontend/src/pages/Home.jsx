@@ -19,6 +19,13 @@ import api from '../api'
 import './Home.css'
 
 
+/**
+ * Main application home page that manages the multi-panel interface for uploading projects, running analysis, generating and viewing reports, and controlling UI modals and theme.
+ *
+ * Handles authentication redirect on mount, coordinates analysis and visual-report workflows (uploading files, fetching/parsing report content, and computing severity counts), manages modal visibility (Settings, History, GitHub, Profile, report viewers), persists report and project metadata, and exposes handlers for starting new analyses, toggling theme, logging out, and navigating to the admin panel.
+ *
+ * @returns {JSX.Element} The rendered Home page component with sidebar, header, content area (upload, results, or guide), modals, and toast notifications.
+ */
 export default function Home() {
   const navigate = useNavigate()
   const location = useLocation()
